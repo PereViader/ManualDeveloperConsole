@@ -1,0 +1,1 @@
+# ManualCheats.Core
