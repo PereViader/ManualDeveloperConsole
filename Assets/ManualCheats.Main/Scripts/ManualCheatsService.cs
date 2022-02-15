@@ -4,16 +4,12 @@ using UnityEngine;
 
 namespace ManualCheats.Core
 {
-    public delegate ICheatWidget CreateCheatWidgetDelegate(ICheat cheat);
-    public delegate void DisposeCheatWidgetDelegate(ICheatWidget cheatWidget);
-
     public class ManualCheatsService : MonoBehaviour, IManualCheatsService
     {
         public GameObject canvasGameObject;
         public ManualCheatsWidgetContainerController containerController;
 
-        private Dictionary<Type, CreateCheatWidgetDelegate> createCheatWidgetDelegates;
-        private Dictionary<Type, DisposeCheatWidgetDelegate> disposeCheatWidgetDelegates;
+        private ManualTypeCheatConfigurationStore manualTypeCheatConfigurationStore;
 
         private readonly Dictionary<ICheat, ICheatWidget> cheatWidgets = new Dictionary<ICheat, ICheatWidget>();
         private readonly Dictionary<ICheat, string> cheatCategories = new Dictionary<ICheat, string>();
@@ -21,23 +17,25 @@ namespace ManualCheats.Core
 
         public bool IsVisible { get; set; }
 
-        public void Inject(
-            Dictionary<Type, CreateCheatWidgetDelegate> createCheatWidgetDelegates,
-            Dictionary<Type, DisposeCheatWidgetDelegate> disposeCheatWidgetDelegates)
+        public void Inject(ManualTypeCheatConfigurationStore manualTypeCheatConfigurationStore)
         {
-            this.createCheatWidgetDelegates = createCheatWidgetDelegates;
-            this.disposeCheatWidgetDelegates = disposeCheatWidgetDelegates;
+            this.manualTypeCheatConfigurationStore = manualTypeCheatConfigurationStore;
         }
 
-        public void AddCheat<T>(string category, T cheat) where T : ICheat
+        public void AddCheat(string category, ICheat cheat)
         {
             if (cheatWidgets.ContainsKey(cheat))
             {
                 throw new InvalidOperationException("Cheat is already registered");
             }
 
-            var createCheatWidgetDelegate = createCheatWidgetDelegates[typeof(T)];
-            var cheatWidget = createCheatWidgetDelegate.Invoke(cheat);
+            var type = cheat.GetType();
+            if (!manualTypeCheatConfigurationStore.TryGet(type, out var configuration))
+            {
+                throw new InvalidOperationException($"No cheat configuration was found for type {type.FullName}");
+            }
+
+            var cheatWidget = configuration.CreateCheatWidgetDelegate.Invoke(cheat);
 
             containerController.Add(category, cheatWidget);
 
@@ -45,16 +43,17 @@ namespace ManualCheats.Core
             cheatCategories.Add(cheat, category);
         }
 
-        public void RemoveCheat<T>(T cheat) where T : ICheat
+        public void RemoveCheat(ICheat cheat)
         {
             if (!cheatWidgets.TryGetValue(cheat, out var cheatWidget))
             {
                 throw new InvalidOperationException("Cheat was not registered");
             }
 
-            if (!disposeCheatWidgetDelegates.TryGetValue(typeof(T), out var disposeCheatWidgetDelegate))
+            var type = cheat.GetType();
+            if (!manualTypeCheatConfigurationStore.TryGet(type, out var configuration))
             {
-                throw new InvalidOperationException("There was no cheat widget disposer for the type");
+                throw new InvalidOperationException($"No cheat configuration was found for type {type.FullName}");
             }
 
             if (!cheatCategories.TryGetValue(cheat, out var category))
@@ -66,7 +65,7 @@ namespace ManualCheats.Core
 
             containerController.Remove(category, cheatWidget);
 
-            disposeCheatWidgetDelegate.Invoke(cheatWidget);
+            configuration.DisposeCheatWidgetDelegate.Invoke(cheatWidget);
             cheatWidgets.Remove(cheat);
             cheatCategories.Remove(cheat);
         }

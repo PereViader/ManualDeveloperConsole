@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6911171174584883353}
   - component: {fileID: 2926806377651411025}
-  - component: {fileID: 4821569821840355562}
   - component: {fileID: 2843129962021924978}
+  - component: {fileID: 3629095451247305014}
   m_Layer: 0
   m_Name: ButtonCheatWidget
   m_TagString: Untagged
@@ -84,20 +84,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4821569821840355562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2697328254875474311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0ff97e276a58940a4cf7f5c42eb475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 2926806377651411025}
-  nameText: {fileID: 2125192334812662086}
 --- !u!114 &2843129962021924978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +110,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3629095451247305014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697328254875474311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01709ee21faccba42a4869a46347f1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2926806377651411025}
+  nameText: {fileID: 2125192334812662086}
 --- !u!1 &6265576220460175351
 GameObject:
   m_ObjectHideFlags: 0

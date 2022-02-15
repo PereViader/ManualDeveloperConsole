@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace ManualCheats.Core
 {
     public class ManualCheatsServiceBuilder : IManualCheatsServiceBuilder
     {
-        private readonly Dictionary<Type, CreateCheatWidgetDelegate> createCheatWidgetDelegates = new Dictionary<Type, CreateCheatWidgetDelegate>();
-        private readonly Dictionary<Type, DisposeCheatWidgetDelegate> disposeCheatWidgetDelegates = new Dictionary<Type, DisposeCheatWidgetDelegate>();
+        private readonly List<TypeCheatConfiguration> typeCheatConfigurations = new List<TypeCheatConfiguration>();
 
-        public IManualCheatsServiceBuilder AddCheat<TCheat, TCheatWidget>(
-            Func<TCheat, TCheatWidget> createWidget,
-            Action<TCheatWidget> disposeWidget)
-            where TCheat : ICheat
-            where TCheatWidget : ICheatWidget<TCheat>
+        public IManualCheatsServiceBuilder AddCheat(TypeCheatConfiguration typeCheatConfiguration)
         {
-            var cheatType = typeof(TCheat);
-            createCheatWidgetDelegates.Add(cheatType, x => createWidget.Invoke((TCheat)x));
-            disposeCheatWidgetDelegates.Add(cheatType, x => disposeWidget.Invoke((TCheatWidget)x));
-
+            typeCheatConfigurations.Add(typeCheatConfiguration);
             return this;
         }
 
@@ -29,9 +20,7 @@ namespace ManualCheats.Core
 
             service.gameObject.SetActive(false);
 
-            service.Inject(
-                createCheatWidgetDelegates,
-                disposeCheatWidgetDelegates);
+            service.Inject(new ManualTypeCheatConfigurationStore(typeCheatConfigurations));
 
             return service;
         }

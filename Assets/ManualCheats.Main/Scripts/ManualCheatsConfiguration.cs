@@ -7,7 +7,8 @@ namespace ManualCheats.Core
     {
         public ManualCheatsService manualCheatsServicePrefab;
         public ButtonCheatWidget buttonCheatWidget;
-        public CommonNextPreviousCheatWidget nextPreviousCheatWidget;
         public ToggleCheatWidget toggleCheatWidget;
+        public NextPreviousCheatWidgetReferences nextPreviousCheatWidgetReferences;
+        public DropwdownButtonCheatWidgetReferences dropwdownButtonCheatWidgetReferences;
     }
 }

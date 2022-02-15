@@ -7,7 +7,7 @@
         void Show();
         void Hide();
 
-        void AddCheat<T>(string category, T cheat) where T : ICheat;
-        void RemoveCheat<T>(T cheat) where T : ICheat;
+        void AddCheat(string category, ICheat cheat);
+        void RemoveCheat(ICheat cheat);
     }
 }

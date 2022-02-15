@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ManualCheatsConfiguration
   m_EditorClassIdentifier: 
   manualCheatsServicePrefab: {fileID: 4004349655720629301, guid: c04d82ee3d5153840b8cf0368b08c0cf, type: 3}
-  buttonCheatWidget: {fileID: 4821569821840355562, guid: ca02e6a7baaa10d41936b81c97fdde99, type: 3}
-  nextPreviousCheatWidget: {fileID: 1752341120224497457, guid: a3f84e051acd3af4684a247ebe226c8d, type: 3}
-  toggleCheatWidget: {fileID: 6123362753018191796, guid: 328be170d492f9b4b93a34c366b8cc08, type: 3}
+  buttonCheatWidget: {fileID: 3629095451247305014, guid: ca02e6a7baaa10d41936b81c97fdde99, type: 3}
+  toggleCheatWidget: {fileID: 1211589637376235897, guid: 328be170d492f9b4b93a34c366b8cc08, type: 3}
+  nextPreviousCheatWidgetReferences: {fileID: 3853981359741685854, guid: a3f84e051acd3af4684a247ebe226c8d, type: 3}
+  dropwdownButtonCheatWidgetReferences: {fileID: 728709950565745440, guid: c092dc188072fc741bc2bfe8799db416, type: 3}

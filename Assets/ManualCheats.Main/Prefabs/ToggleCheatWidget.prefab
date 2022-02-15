@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6911171174584883353}
   - component: {fileID: 2843129962021924978}
   - component: {fileID: 6839197593538243369}
-  - component: {fileID: 6123362753018191796}
+  - component: {fileID: 1211589637376235897}
   m_Layer: 0
   m_Name: ToggleCheatWidget
   m_TagString: Untagged
@@ -211,7 +211,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!114 &6123362753018191796
+--- !u!114 &1211589637376235897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2697328254875474311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff97d1a4755a14ca545f9354a10f73, type: 3}
+  m_Script: {fileID: 11500000, guid: ab7950c770112454bae570da788d93d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 6839197593538243369}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 882327136719774454}
   - component: {fileID: 2125192334812662086}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
