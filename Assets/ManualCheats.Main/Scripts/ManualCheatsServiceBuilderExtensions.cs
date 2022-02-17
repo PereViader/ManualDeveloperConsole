@@ -8,7 +8,7 @@
 
             var buttonFactory = new ButtonCheatWidgetFactory(defaultManualCheatsConfiguration.buttonCheatWidget);
             builder.AddCheat(new TypeCheatConfiguration(
-                t => t == typeof(ButtonCheat),
+                typeof(ButtonCheat).IsAssignableFrom,
                 x => buttonFactory.Create((ButtonCheat)x),
                 disposer.Dispose
                 ));
@@ -18,14 +18,14 @@
                 new NextPreviousCheatWidgetFactory().Create
                 );
             builder.AddCheat(new TypeCheatConfiguration(
-                t => typeof(INextPreviousCheat).IsAssignableFrom(t),
+                typeof(INextPreviousCheat).IsAssignableFrom,
                 x => nextPreviousFactory.Create((INextPreviousCheat)x),
                 disposer.Dispose
                 ));
 
             var toggleFactory = new ToggleCheatWidgetFactory(defaultManualCheatsConfiguration.toggleCheatWidget);
             builder.AddCheat(new TypeCheatConfiguration(
-                t => t == typeof(ToggleCheat),
+                typeof(ToggleCheat).IsAssignableFrom,
                 x => toggleFactory.Create((ToggleCheat)x),
                 disposer.Dispose
                 ));
@@ -35,7 +35,7 @@
                 new DropdownButtonCheatWidgetFactory().Create
                 );
             builder.AddCheat(new TypeCheatConfiguration(
-                t => typeof(IDropdownButtonCheat).IsAssignableFrom(t),
+                typeof(IDropdownButtonCheat).IsAssignableFrom,
                 x => dropdownFactory.Create((IDropdownButtonCheat)x),
                 disposer.Dispose
                 ));

@@ -16,6 +16,7 @@ namespace ManualCheats.Core
 
         public void Init(string categoryName)
         {
+            gameObject.name = categoryName;
             categoryNameText.SetText(categoryName);
         }
 

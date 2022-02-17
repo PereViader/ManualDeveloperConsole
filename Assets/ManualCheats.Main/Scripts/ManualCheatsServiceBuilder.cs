@@ -20,7 +20,21 @@ namespace ManualCheats.Core
 
             service.gameObject.SetActive(false);
 
-            service.Inject(new ManualTypeCheatConfigurationStore(typeCheatConfigurations));
+            var store = new ManualTypeCheatConfigurationStore(typeCheatConfigurations);
+            var repository = new CheatEntryRepository();
+            var allState = new DisplayingAllState(
+                store,
+                service.containerController,
+                repository);
+
+            var searchState = new SearchingState(
+                allState,
+                repository);
+
+            service.Inject(
+                repository,
+                allState,
+                searchState);
 
             return service;
         }

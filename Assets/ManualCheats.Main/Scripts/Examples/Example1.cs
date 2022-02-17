@@ -85,9 +85,10 @@ namespace ManualCheats.Core
             return "No category";
         }
 
+        ICheat testCheat = new ToggleCheat("e", () => true, _ => { });
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 manualCheatsService.ToggleVisibility();
             }

@@ -49,7 +49,7 @@ namespace ManualCheats.Core
         {
             categoryControllers.Remove(category);
 
-            GameObject.Destroy(categoryController);
+            GameObject.Destroy(categoryController.gameObject);
         }
     }
 }

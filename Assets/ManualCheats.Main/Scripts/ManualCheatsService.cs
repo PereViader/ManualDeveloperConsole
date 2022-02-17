@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace ManualCheats.Core
@@ -8,86 +8,103 @@ namespace ManualCheats.Core
     {
         public GameObject canvasGameObject;
         public ManualCheatsWidgetContainerController containerController;
+        public TMP_InputField searchInputField;
 
-        private ManualTypeCheatConfigurationStore manualTypeCheatConfigurationStore;
-
-        private readonly Dictionary<ICheat, ICheatWidget> cheatWidgets = new Dictionary<ICheat, ICheatWidget>();
-        private readonly Dictionary<ICheat, string> cheatCategories = new Dictionary<ICheat, string>();
-
+        private CheatEntryRepository cheatEntryRepository;
+        private DisplayingAllState displayingAllState;
+        private SearchingState searchingState;
+        private IState currentState;
 
         public bool IsVisible { get; set; }
 
-        public void Inject(ManualTypeCheatConfigurationStore manualTypeCheatConfigurationStore)
+        public void Inject(
+            CheatEntryRepository cheatEntryRepository,
+            DisplayingAllState displayingAllState,
+            SearchingState searchingState)
         {
-            this.manualTypeCheatConfigurationStore = manualTypeCheatConfigurationStore;
+            this.cheatEntryRepository = cheatEntryRepository;
+            this.displayingAllState = displayingAllState;
+            this.searchingState = searchingState;
+
+            currentState = displayingAllState;
+        }
+
+        public void OnEnable()
+        {
+            searchInputField.onEndEdit.AddListener(SearchInputField_OnEndEdit);
+        }
+
+        public void OnDisable()
+        {
+            searchInputField.onEndEdit.RemoveListener(SearchInputField_OnEndEdit);
+        }
+
+        private void SearchInputField_OnEndEdit(string arg0)
+        {
+            if (string.IsNullOrEmpty(arg0))
+            {
+                ChangeCurrentState(displayingAllState);
+            }
+            else
+            {
+                searchingState.OnDisplayCheatPredicateChanged(x => x.Name.Contains(arg0));
+                ChangeCurrentState(searchingState, searchingState.Restart);
+            }
+        }
+
+        private void ChangeCurrentState(IState nextState, Action stateIsSame = null)
+        {
+            if (currentState == nextState)
+            {
+                stateIsSame?.Invoke();
+                return;
+            }
+
+            currentState.Deactivate();
+            currentState.OnExit();
+
+            currentState = nextState;
+
+            currentState.OnEnter();
+            currentState.Activate();
         }
 
         public void AddCheat(string category, ICheat cheat)
         {
-            if (cheatWidgets.ContainsKey(cheat))
+            if (cheatEntryRepository.Contains(cheat))
             {
                 throw new InvalidOperationException("Cheat is already registered");
             }
 
-            var type = cheat.GetType();
-            if (!manualTypeCheatConfigurationStore.TryGet(type, out var configuration))
-            {
-                throw new InvalidOperationException($"No cheat configuration was found for type {type.FullName}");
-            }
+            var cheatEntry = new CheatEntry(cheat, category);
+            cheatEntryRepository.Add(cheat, cheatEntry);
 
-            var cheatWidget = configuration.CreateCheatWidgetDelegate.Invoke(cheat);
-
-            containerController.Add(category, cheatWidget);
-
-            cheatWidgets.Add(cheat, cheatWidget);
-            cheatCategories.Add(cheat, category);
+            currentState.OnCheatAdded(cheatEntry);
         }
 
         public void RemoveCheat(ICheat cheat)
         {
-            if (!cheatWidgets.TryGetValue(cheat, out var cheatWidget))
+            if (!cheatEntryRepository.TryGet(cheat, out var cheatEntry))
             {
                 throw new InvalidOperationException("Cheat was not registered");
             }
 
-            var type = cheat.GetType();
-            if (!manualTypeCheatConfigurationStore.TryGet(type, out var configuration))
-            {
-                throw new InvalidOperationException($"No cheat configuration was found for type {type.FullName}");
-            }
-
-            if (!cheatCategories.TryGetValue(cheat, out var category))
-            {
-                throw new InvalidOperationException("Could not get cheat category for cheat");
-            }
-
-            cheatWidget.Deactivate();
-
-            containerController.Remove(category, cheatWidget);
-
-            configuration.DisposeCheatWidgetDelegate.Invoke(cheatWidget);
-            cheatWidgets.Remove(cheat);
-            cheatCategories.Remove(cheat);
+            cheatEntryRepository.Remove(cheat);
+            currentState.OnCheatRemoved(cheatEntry);
         }
 
         public void Show()
         {
             canvasGameObject.SetActive(true);
 
-            foreach (var cheat in cheatWidgets)
-            {
-                cheat.Value.Activate();
-            }
+            currentState.Activate();
 
             IsVisible = true;
         }
 
         public void Hide()
         {
-            foreach (var cheat in cheatWidgets)
-            {
-                cheat.Value.Deactivate();
-            }
+            currentState.Deactivate();
 
             canvasGameObject.SetActive(false);
 
