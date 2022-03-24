@@ -1,10 +1,12 @@
 {
-    "name": "ManualCheats.Core.Runtime",
-    "rootNamespace": "ManualCheats.Core",
+    "name": "ManualCheats.EditorPlugin",
+    "rootNamespace": "ManualCheats.EditorPlugin",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:32d08c3da34f3a244ba18c5aa03da3c0"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
