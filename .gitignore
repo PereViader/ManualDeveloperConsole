@@ -10,6 +10,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
+#Text mesh pro
+/Assets/TextMesh\ Pro/
+/Assets/TextMesh\ Pro.meta
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
