@@ -1,6 +1,8 @@
-﻿using ManualCheats.Core.EditorWidgets.Nop;
+﻿using ManualCheats.Core;
+using ManualCheats.EditorPlugin.Widgets;
+using ManualCheats.EditorPlugin.Widgets.Nop;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     public class CheatEditorWidgetFactory
     {

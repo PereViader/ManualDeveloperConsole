@@ -1,6 +1,7 @@
-﻿using UnityEditor;
+﻿using ManualCheats.Core;
+using UnityEditor;
 
-namespace ManualCheats.Core.EditorWidgets.Toggle
+namespace ManualCheats.EditorPlugin.Widgets.Toggle
 {
     public class ToggleCheatEditorWidget : ICheatEditorWidget
     {

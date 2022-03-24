@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     public abstract class EditorConfiguration : ScriptableObject
     {

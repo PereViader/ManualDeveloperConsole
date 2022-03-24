@@ -1,4 +1,6 @@
-﻿namespace ManualCheats.Core.EditorWidgets.DropdownButton
+﻿using ManualCheats.Core;
+
+namespace ManualCheats.EditorPlugin.Widgets.DropdownButton
 {
     public class DropdownButtonCheatEditorWidgetFactory : IDropdownButtonCheatVisitor<object, ICheatEditorWidget>
     {

@@ -1,4 +1,6 @@
-﻿namespace ManualCheats.Core.EditorWidgets.NextPrevious
+﻿using ManualCheats.Core;
+
+namespace ManualCheats.EditorPlugin.Widgets.NextPrevious
 {
     public class NextPreviousCheatEditorWidgetFactory : INextPreviousCheatVisitor<object, ICheatEditorWidget>
     {

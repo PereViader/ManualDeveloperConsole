@@ -1,6 +1,7 @@
-﻿using UnityEditor;
+﻿using ManualCheats.Core;
+using UnityEditor;
 
-namespace ManualCheats.Core.EditorWidgets.Nop
+namespace ManualCheats.EditorPlugin.Widgets.Nop
 {
     public class NopCheatEditorWidget : ICheatEditorWidget
     {

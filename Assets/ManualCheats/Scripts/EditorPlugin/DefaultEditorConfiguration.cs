@@ -1,12 +1,14 @@
-﻿using ManualCheats.Core.EditorWidgets.Button;
-using ManualCheats.Core.EditorWidgets.DropdownButton;
-using ManualCheats.Core.EditorWidgets.NextPrevious;
-using ManualCheats.Core.EditorWidgets.Toggle;
+﻿using ManualCheats.Core;
+using ManualCheats.EditorPlugin.Widgets;
+using ManualCheats.EditorPlugin.Widgets.Button;
+using ManualCheats.EditorPlugin.Widgets.DropdownButton;
+using ManualCheats.EditorPlugin.Widgets.NextPrevious;
+using ManualCheats.EditorPlugin.Widgets.Toggle;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     [CreateAssetMenu(menuName = "Manual Cheats/Default Editor Configuration")]
     public class DefaultEditorConfiguration : EditorConfiguration

@@ -1,8 +1,9 @@
-﻿using System.Linq;
+﻿using ManualCheats.Core;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets.DropdownButton
+namespace ManualCheats.EditorPlugin.Widgets.DropdownButton
 {
     public class DropdownButtonCheatEditorWidget<T> : ICheatEditorWidget
     {

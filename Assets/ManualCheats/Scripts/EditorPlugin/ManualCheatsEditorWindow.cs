@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     public class ManualCheatsEditorWindow : EditorWindow
     {

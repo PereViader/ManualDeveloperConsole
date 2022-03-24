@@ -1,8 +1,11 @@
-﻿using System;
+﻿using ManualCheats.Core;
+using ManualCheats.EditorPlugin.Utils;
+using ManualCheats.EditorPlugin.Widgets;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     public class ManualCheatsEditorService
     {
@@ -39,11 +42,6 @@ namespace ManualCheats.Core.EditorWidgets
             EditorApplication.playModeStateChanged += Instance.EditorApplication_playModeStateChanged;
             CheatEvents.OnCheatAdded += Instance.AddCheat;
             CheatEvents.OnCheatRemoved += Instance.RemoveCheat;
-        }
-
-        public void Register()
-        {
-
         }
 
         private void EditorApplication_playModeStateChanged(PlayModeStateChange change)

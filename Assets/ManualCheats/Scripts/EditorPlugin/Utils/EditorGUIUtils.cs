@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets.NextPrevious
+namespace ManualCheats.EditorPlugin.Utils
 {
     public static class EditorGUIUtils
     {

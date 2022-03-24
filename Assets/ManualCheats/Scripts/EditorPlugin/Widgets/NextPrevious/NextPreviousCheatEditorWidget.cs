@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ManualCheats.Core;
+using ManualCheats.EditorPlugin.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets.NextPrevious
+namespace ManualCheats.EditorPlugin.Widgets.NextPrevious
 {
     public class NextPreviousCheatEditorWidget<T> : ICheatEditorWidget
     {

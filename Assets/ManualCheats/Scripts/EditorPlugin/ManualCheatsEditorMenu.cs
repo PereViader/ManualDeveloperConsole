@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     public static class ManualCheatsEditorMenu
     {

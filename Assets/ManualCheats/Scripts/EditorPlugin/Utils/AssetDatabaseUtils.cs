@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEditor;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin.Utils
 {
     public static class AssetDatabaseUtils
     {

@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using ManualCheats.Core;
+using UnityEditor;
 using UnityEngine;
 
-namespace ManualCheats.Core.EditorWidgets.Button
+namespace ManualCheats.EditorPlugin.Widgets.Button
 {
     public class ButtonCheatEditorWidget : ICheatEditorWidget
     {

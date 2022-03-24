@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ManualCheats.Core;
+using ManualCheats.EditorPlugin.Widgets;
+using System;
 using System.Collections.Generic;
 
-namespace ManualCheats.Core.EditorWidgets
+namespace ManualCheats.EditorPlugin
 {
     public class EditorWidgetConfiguration
     {

@@ -1,4 +1,4 @@
-﻿namespace ManualCheats.Core.EditorWidgets
+﻿namespace ManualCheats.EditorPlugin.Widgets
 {
     public interface ICheatEditorWidget
     {
