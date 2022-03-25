@@ -27,13 +27,13 @@ Once the service is built, you can provide it with instances of the registered C
 
 ## Examples
 
-![Image of how the cheat panel looks](Images/Example1.png?raw=true)
+![The cheat panel showing cheats both on the game and on a editor window](Images/Example1.png?raw=true)
 
 # How to use it
 
 ## Install the package
 
-(Repository is still not setup to be a package, for now you can download the repository and copy paste it into your project or make it a package yourself)
+(Repository still does not have a UPM branch, for now you can download the repository locally and reference it as a package from disk)
 
 ## Setup default configurations
 
