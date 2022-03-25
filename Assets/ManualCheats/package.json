@@ -15,9 +15,9 @@
     "licensesUrl" : "https://opensource.org/licenses/MIT",
     "samples" : [
         {
-            "displayName" : "Example1",
+            "displayName" : "Using Manual Cheats",
             "description" : "Allows the user to press TAB to open and close the cheat panel and adds many random cheats to it",
-            "path" : "Assets/Examples/Example1"
+            "path" : "Samples~/UsingManualCheats"
         }
     ]
 }
