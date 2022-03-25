@@ -12,7 +12,7 @@ Features:
 - Dynamic cheat categories: No need to statically define the categories of your cheats. Data driven systems can add their own categories with their dynamic names.
 - Dynamic cheat control: Register and unregister cheats as you move through the game. You are not restricted by a static set amount of cheats.
 
-## Usage Overview
+## Overview
 
 Cheats are composed of 3 parts
 
@@ -25,15 +25,19 @@ is configured with `ButtonCheat`, `ButtonCheatRuntimeWidget` and `ButtonCheatEdi
 
 Once the service is built, you can provide it with instances of the registered Cheat and it will ready the registered widget so it can be used.
 
-## Examples
-
 ![The cheat panel showing cheats both on the game and on a editor window](Images/Example1.png?raw=true)
 
 # How to use it
 
 ## Install the package
 
-(Repository still does not have a UPM branch, for now you can download the repository locally and reference it as a package from disk)
+- Check which is the latest commit id on the `main` branch
+    - For example at the time of writing this it was `a660f635012b95f5e7b037b77622b940f01ae578`
+- Paste the id after the `#` symbol `https://github.com/PereViader/ManualCheats.Core.git?path=Assets/ManualCheats#`
+    - It should look like `https://github.com/PereViader/ManualCheats.Core.git?path=Assets/ManualCheats#a660f635012b95f5e7b037b77622b940f01ae578`
+- Go to `Window/Package Manager/+/Add package from git URL...` in your project and use the URL 
+
+If you have any doubts on the GIT url format [this is the documentation](https://docs.unity3d.com/Manual/upm-git.html)
 
 ## Setup default configurations
 

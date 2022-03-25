@@ -12,7 +12,7 @@
     "documentationUrl" : "https://github.com/PereViader/ManualCheats.Core",
     "keywords": ["cheats", "options", "hacks"],
     "license": "MIT",
-    "licensesUrl" : "https://opensource.org/licenses/MIT",
+    "licensesUrl" : "https://github.com/PereViader/ManualCheats.Core/blob/main/LICENSE",
     "samples" : [
         {
             "displayName" : "Using Manual Cheats",
