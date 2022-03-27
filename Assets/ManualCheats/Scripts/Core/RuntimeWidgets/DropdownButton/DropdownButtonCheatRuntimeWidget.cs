@@ -26,16 +26,16 @@ namespace ManualCheats.Core
             {
                 dropdownButtonCheatWidgetReferences.dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(optionName));
             }
+
+            dropdownButtonCheatWidgetReferences.button.onClick.AddListener(Button_OnClick);
         }
 
         public void Activate()
         {
-            dropdownButtonCheatWidgetReferences.button.onClick.AddListener(Button_OnClick);
         }
 
         public void Deactivate()
         {
-            dropdownButtonCheatWidgetReferences.button.onClick.RemoveListener(Button_OnClick);
         }
 
         private void Button_OnClick()

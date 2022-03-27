@@ -18,19 +18,18 @@ namespace ManualCheats.Core
             this.toggleCheat = toggleCheat;
         }
 
-        public void Init()
+        public void Initialize()
         {
             nameText.SetText(toggleCheat.Name);
+            toggle.onValueChanged.AddListener(Toggle_OnValueChanged);
         }
 
         public void Activate()
         {
-            toggle.onValueChanged.AddListener(Toggle_OnValueChanged);
         }
 
         public void Deactivate()
         {
-            toggle.onValueChanged.RemoveListener(Toggle_OnValueChanged);
         }
 
         private void Toggle_OnValueChanged(bool arg0)

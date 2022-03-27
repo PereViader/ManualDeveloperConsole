@@ -21,16 +21,15 @@ namespace ManualCheats.Core
         public void Initialize()
         {
             nameText.text = Cheat.Name;
+            button.onClick.AddListener(Button_OnClick);
         }
 
         public void Activate()
         {
-            button.onClick.AddListener(Button_OnClick);
         }
 
         public void Deactivate()
         {
-            button.onClick.RemoveListener(Button_OnClick);
         }
 
         public void Button_OnClick()

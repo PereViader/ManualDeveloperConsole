@@ -16,7 +16,7 @@ namespace ManualCheats.Core
             var widgetInstance = GameObject.Instantiate(prefab);
 
             widgetInstance.Inject(toggleCheat);
-            widgetInstance.Init();
+            widgetInstance.Initialize();
 
             return widgetInstance;
         }

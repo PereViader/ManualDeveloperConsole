@@ -26,6 +26,20 @@ namespace ManualCheats.Core
             references.nameText.SetText(nextPreviousCheat.Name);
             previousValue = nextPreviousCheat.GetValue();
             references.inputField.SetTextWithoutNotify(nextPreviousCheat.ConvertValueToString(previousValue));
+
+            references.OnUpdate += Update;
+
+            references.previousButton.onClick.AddListener(PreviousButton_OnClick);
+            references.nextButton.onClick.AddListener(NextButton_OnClick);
+            references.inputField.onValueChanged.AddListener(InputField_OnValueChanged);
+        }
+
+        public void Activate()
+        {
+        }
+
+        public void Deactivate()
+        {
         }
 
         public void InputField_OnValueChanged(string stringValue)
@@ -54,24 +68,6 @@ namespace ManualCheats.Core
                 previousValue = currentValue;
                 references.inputField.SetTextWithoutNotify(nextPreviousCheat.ConvertValueToString(currentValue));
             }
-        }
-
-        public void Activate()
-        {
-            references.OnUpdate += Update;
-
-            references.previousButton.onClick.AddListener(PreviousButton_OnClick);
-            references.nextButton.onClick.AddListener(NextButton_OnClick);
-            references.inputField.onValueChanged.AddListener(InputField_OnValueChanged);
-        }
-
-        public void Deactivate()
-        {
-            references.OnUpdate -= Update;
-
-            references.previousButton.onClick.RemoveListener(PreviousButton_OnClick);
-            references.nextButton.onClick.RemoveListener(NextButton_OnClick);
-            references.inputField.onValueChanged.RemoveListener(InputField_OnValueChanged);
         }
     }
 }
