@@ -56,8 +56,6 @@ interface ICharacter
 }
 
 ...
-var buttonFactory = new ButtonCheatWidgetFactory(defaultManualCheatsConfiguration.buttonCheatWidget);
-
 IManualCheatsService service = new ManualCheatsServiceBuilder()
     .AddDefaultCheats(configuration)
     .Build();
