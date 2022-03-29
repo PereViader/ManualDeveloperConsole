@@ -1,0 +1,23 @@
+{
+    "name" : "me.pereviader.unitydeveloperconsole.core",
+    "version" : "1.0.0",
+    "description" : "Powerful developer console for your unity game",
+    "displayName" : "Unity Developer Console",
+    "unity" : "2019.3",
+    "author": {
+        "name" : "Pere Viader",
+        "email" : "pere.viader22@gmail.com",
+        "url": "https://github.com/PereViader"
+    },
+    "documentationUrl" : "https://github.com/PereViader/UnityDeveloperConsole",
+    "keywords": ["developer", "console", "cheats", "options", "hacks"],
+    "license": "MIT",
+    "licensesUrl" : "https://github.com/PereViader/UnityDeveloperConsole/blob/main/LICENSE",
+    "samples" : [
+        {
+            "displayName" : "Sample Usage",
+            "description" : "Allows the user to press TAB to open and close the console panel and exposes a button that adds random options to it",
+            "path" : "Samples~/SampleUsage"
+        }
+    ]
+}

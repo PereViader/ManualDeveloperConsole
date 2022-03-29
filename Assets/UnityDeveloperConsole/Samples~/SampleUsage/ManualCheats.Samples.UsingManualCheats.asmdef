@@ -1,0 +1,16 @@
+{
+    "name": "UnityDeveloperConsole.Samples.SampleUsage",
+    "rootNamespace": "",
+    "references": [
+        "GUID:32d08c3da34f3a244ba18c5aa03da3c0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

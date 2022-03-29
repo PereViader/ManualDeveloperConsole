@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2530119017ce1a048a763d2c8a7d5988, type: 3}
+  m_Name: UnityDeveloperConsoleRuntimeConfiguration
+  m_EditorClassIdentifier: 
+  unityDeveloperConsole: {fileID: 4004349655720629301, guid: c04d82ee3d5153840b8cf0368b08c0cf, type: 3}
+  buttonCheatWidget: {fileID: 3929688576456077080, guid: ca02e6a7baaa10d41936b81c97fdde99, type: 3}
+  toggleCheatWidget: {fileID: 5757862674458763368, guid: 328be170d492f9b4b93a34c366b8cc08, type: 3}
+  nextPreviousCheatWidgetReferences: {fileID: 1447862337257010907, guid: a3f84e051acd3af4684a247ebe226c8d, type: 3}
+  dropwdownButtonCheatWidgetReferences: {fileID: 3986026595742156080, guid: c092dc188072fc741bc2bfe8799db416, type: 3}

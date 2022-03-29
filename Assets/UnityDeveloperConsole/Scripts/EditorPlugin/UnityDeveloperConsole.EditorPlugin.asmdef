@@ -1,0 +1,18 @@
+﻿{
+    "name": "UnityDeveloperConsole.EditorPlugin",
+    "rootNamespace": "UnityDeveloperConsole.EditorPlugin",
+    "references": [
+        "GUID:32d08c3da34f3a244ba18c5aa03da3c0"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
