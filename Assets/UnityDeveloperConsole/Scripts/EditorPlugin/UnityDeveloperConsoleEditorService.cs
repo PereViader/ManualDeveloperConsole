@@ -22,26 +22,33 @@ namespace UnityDeveloperConsole.EditorPlugin
         [InitializeOnLoadMethod]
         private static void Initialize()
         {
-            var serviceConfigurations = AssetDatabaseUtils.FindAssetsOfType<EditorConfiguration>();
-            if (serviceConfigurations.Count == 0)
-            {
-                UnityEngine.Debug.LogError("Unity Developer Console editor configuration was not found, please create the asset using the Create Asset menu");
-                return;
-            }
-
-            if (serviceConfigurations.Count > 1)
-            {
-                UnityEngine.Debug.LogError($"There should be only one asset of type {nameof(EditorConfiguration)}");
-                return;
-            }
-
-            var serviceConfiguration = serviceConfigurations[0];
-
-            var widgetConfiguration = serviceConfiguration.Create();
-            Instance = new UnityDeveloperConsoleEditorService(new OptionEditorWidgetFactory(widgetConfiguration));
+            Instance = new UnityDeveloperConsoleEditorService(new OptionEditorWidgetFactory(GetConfiguration()));
             EditorApplication.playModeStateChanged += Instance.EditorApplication_playModeStateChanged;
             OptionEvents.OnOptionAdded += Instance.AddOption;
             OptionEvents.OnOptionRemoved += Instance.RemoveOption;
+        }
+
+        private static EditorWidgetConfiguration GetConfiguration()
+        {
+            var serviceConfigurations = AssetDatabaseUtils.FindAssetsOfType<EditorConfiguration>();
+
+            if (serviceConfigurations.Count > 1)
+            {
+                UnityEngine.Debug.LogError($"There should be only one asset of type {nameof(EditorConfiguration)} configuration used is undefined");
+            }
+
+            Func<EditorWidgetConfiguration> createConfiguration;
+
+            if (serviceConfigurations.Count == 0)
+            {
+                createConfiguration = DefaultEditorConfiguration.CreateDefault;
+            }
+            else
+            {
+                createConfiguration = serviceConfigurations[0].Create;
+            }
+
+            return createConfiguration.Invoke();
         }
 
         private void EditorApplication_playModeStateChanged(PlayModeStateChange change)

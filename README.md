@@ -38,11 +38,6 @@ Once the service is built, you can provide it with instances of the registered O
 
 If you have any doubts on the GIT url format [this is the documentation](https://docs.unity3d.com/Manual/upm-git.html)
 
-## Setup default configurations
-
-Go to your project and create the default editor configuration by right clicking on the hierarchy and going to `Create/Unity Developer Console/Default Editor Configuration`
-The project needs to have just one instance of this asset. It is used to setup the editor option widgets.
-
 ## Add it to your codebase
 
 ```c#
@@ -74,7 +69,10 @@ Calling `Show` will then enable the canvas so you can interact with it.
 
 - `ButtonOption`: Button to activate any action
 ```c#
-new ButtonOption(name: "The name", action: () => Debug.Log("Button Pressed"))
+new ButtonOption(
+    name: "The name", 
+    action: () => Debug.Log("Button Pressed")
+    );
 ```
 
 - `DropdownButtonOption`: Dropdown with any amount of options and a button to confirm the selection of the active dropdown element

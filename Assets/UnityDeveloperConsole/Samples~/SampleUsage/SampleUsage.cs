@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Examples
 {
-    public class UsingManualCheats : MonoBehaviour
+    public class SampleUsage : MonoBehaviour
     {
         public UnityDeveloperConsoleRuntimeConfiguration configuration;
         public IUnityDeveloperConsole unityDeveloperConsole;

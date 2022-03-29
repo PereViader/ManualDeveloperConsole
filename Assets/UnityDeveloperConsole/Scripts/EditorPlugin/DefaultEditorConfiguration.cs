@@ -6,14 +6,17 @@ using UnityDeveloperConsole.EditorPlugin.Widgets.Button;
 using UnityDeveloperConsole.EditorPlugin.Widgets.DropdownButton;
 using UnityDeveloperConsole.EditorPlugin.Widgets.NextPrevious;
 using UnityDeveloperConsole.EditorPlugin.Widgets.Toggle;
-using UnityEngine;
 
 namespace UnityDeveloperConsole.EditorPlugin
 {
-    [CreateAssetMenu(menuName = "Unity Developer Console/Default Editor Configuration")]
     public class DefaultEditorConfiguration : EditorConfiguration
     {
         public override EditorWidgetConfiguration Create()
+        {
+            return CreateDefault();
+        }
+
+        public static EditorWidgetConfiguration CreateDefault()
         {
             var configuration = new EditorWidgetConfiguration
             {
@@ -29,7 +32,7 @@ namespace UnityDeveloperConsole.EditorPlugin
             return configuration;
         }
 
-        public (Predicate<Type> predicate, Func<IOption, IOptionEditorWidget> createDelegate) CreateWidgetEntry<TOption>(
+        public static (Predicate<Type> predicate, Func<IOption, IOptionEditorWidget> createDelegate) CreateWidgetEntry<TOption>(
             Func<TOption, IOptionEditorWidget> creationFunc
             )
             where TOption : IOption

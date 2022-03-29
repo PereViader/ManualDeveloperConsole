@@ -15,9 +15,9 @@
 /Assets/TextMesh\ Pro.meta
 
 #Need to ignore samples folder to not commit it without the ~ symbol
-/Assets/ManualCheats/Samples
-/Assets/ManualCheats/Samples.meta
-/Assets/ManualCheats/Samples~.meta
+/Assets/UnityDeveloperConsole/Samples
+/Assets/UnityDeveloperConsole/Samples.meta
+/Assets/UnityDeveloperConsole/Samples~.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
