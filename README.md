@@ -1,5 +1,5 @@
-# Unity Developer Console
-Powerful developer console for your unity game
+# Manual Developer Console
+Powerful developer console for your Unity3d game
 
 Inspired by [SR Debugger](https://www.stompyrobot.uk/tools/srdebugger/) options panel, this project aims to provide a better experience for developers.
 
